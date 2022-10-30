@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myapp/mainscreen.dart';
 
 class Login_with_Validation extends StatelessWidget {
@@ -34,6 +35,7 @@ class Login_with_Validation extends StatelessWidget {
                     return null;
                   }
                 },
+                textInputAction : TextInputAction.next,
               ),
             ),
             Padding(
@@ -50,6 +52,7 @@ class Login_with_Validation extends StatelessWidget {
                     return null;
                   }
                 },
+                textInputAction: TextInputAction.next
               ),
             ),
             Padding(
@@ -62,7 +65,15 @@ class Login_with_Validation extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => MainScreen()));
-                    } else {
+        Fluttertoast.showToast(
+        msg: "INVALID USERNAME \ PASSWORD",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
                       print("Login Failure");
                     }
                   },
