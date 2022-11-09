@@ -9,11 +9,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: ListView(
           children: [
             // Load a Lottie file from your assets
-            Lottie.asset('assets/fruits.json',width: 100,height: 100),
+            Lottie.asset('assets/animations/loading.json',width: 100,height: 100),
 
             // Load a Lottie file from a remote url
             Lottie.network(
