@@ -31,7 +31,8 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: Colors.white,
         centerTitle: true,
         
-        title: Text('CheckBox ListTile Demo',),
+       title: Text('CheckBox ListTile Demo',),
+       foregroundColor: Colors.black,
           ),
 
       body: Column(
