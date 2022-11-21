@@ -25,7 +25,7 @@ class _datetime extends State<Date_Time>{
         type: DateTimePickerType.dateTimeSeparate,
         dateMask: 'd MMM, yyyy',
         initialValue: DateTime.now().toString(),
-        firstDate: DateTime(2000),
+        firstDate: DateTime(1998),
         lastDate: DateTime(2100),
         icon: Icon(Icons.event),
         dateLabelText: 'Date',

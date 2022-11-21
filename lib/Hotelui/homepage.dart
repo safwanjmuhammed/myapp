@@ -1,160 +1,206 @@
+import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreenx extends StatefulWidget {
- 
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
-  State<HomeScreenx> createState() => _HomeScreenState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomeScreenState extends State<HomeScreenx> {
-  
+class _HomeState extends State<Home> {
+  // * DATA
+  List buttons = [
+    [
+      const Icon(
+        CupertinoIcons.bed_double_fill,
+        color: Colors.white,
+        size: 26,
+      ),
+      'Hotel',
+      Colors.pink
+    ],
+    [
+      const Icon(
+        Icons.restaurant_rounded,
+        color: Colors.white,
+        size: 26,
+      ),
+      'Restaurant',
+      Colors.blue
+    ],
+    [
+      const Icon(
+        Icons.coffee_rounded,
+        color: Colors.white,
+        size: 26,
+      ),
+      'Cafe',
+      Colors.orange
+    ],
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-        child: SingleChildScrollView(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.blue,
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border))
+        ],
+        bottom: PreferredSize(
+          preferredSize: const Size(double.infinity, 100),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text(
+                'Type your location',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 22),
+              ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Icon(Icons.menu_rounded, size: 40),
-                    Column(
-                      children: [
-                        Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Icon((Icons.favorite_border_rounded)),
+                padding: const EdgeInsets.only(
+                    left: 30.0, right: 30.0, top: 15, bottom: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: Colors.white),
+                  child: TextField(
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                        focusedBorder: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(40.0)),
+                            borderSide: BorderSide(color: Colors.blueGrey)),
+                        hintText: 'Tokyo',
+                        prefixIcon: const Icon(Icons.search_rounded),
+                        border: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(40))),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.blue[50],
+        elevation: 0,
+      ),
+      body: Column(
+        children: [CategoryButtons(buttons: buttons), const HotelCard()],
+      ),
+    );
+  }
+}
 
-          )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
-                child: Text(
-                  "Type your location!!",
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w800,
-                      color: Color(0xff3C4657)),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 35, vertical: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 300,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Tokyo,Japan",
-                          prefixIcon: const Icon(
-                            Icons.search,
-                            size: 35,
-                            color: Color(0xff3C4657),
-                          ),
-                          border: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                width: 2.4, color: Color(0xff3C4657)),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                width: 2.4, color: Color(0xff3C4657)),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xff3C4657),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      height: 50,
-                      width: 50,
-                      child: const Icon(Icons.filter_alt,
-                          size: 35, color: Colors.white),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-             
-              // SizedBox(
-              //   height: 15,
-              // ),
+class HotelCard extends StatelessWidget {
+  const HotelCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: SizedBox(
+          height: 350,
+          child: Column(
+            children: [
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 12),
-                height: 270,
-                width: double.infinity,
-                      child: InkWell(
-                      onTap: () {
-                                },
-                      child: Container(
-                        decoration: BoxDecoration(
-                           borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
-                          image: DecorationImage(
-                              image:NetworkImage("https://www.vgchartz.com/articles_media/images/tokyo-disneyland-gets-kingdom-hearts-themed-hotel-rooms-4.png"),
-                              fit: BoxFit.fill
-                              ),
+                height: 200,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10)),
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            'https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'))),
+                child: Stack(children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.star_border_rounded,
+                          color: Colors.white,
+                        )),
+                  ),
+                  Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          height: 40,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: const Center(
+                              child: Text(
+                            '\$40',
+                            style: TextStyle(fontSize: 16),
+                          )),
                         ),
-                        child: Stack(children: [
-                          Positioned(
-                            bottom: 10,
-                            left: 10,
-                            child: Column(
-                              
-                              children: [
-                                Text("\$40" ,  
-                                     style: const TextStyle(
-                                      fontSize: 22,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const SizedBox(height: 8),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    children: [
-                                        Text("Awesome room near Tokyo",
-                                        style: const TextStyle(
-                                            fontSize: 22, color: Colors.black),   ),
-                                            Text('Tokyo, Japan', style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),),
-                                            
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                      )
-                      ),
-                    
-                  
-              
+                      )),
+                ]),
               ),
-        
-              
-              
-              ],
+              Container(
+                width: double.infinity,
+                height: 150,
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Text(
+                      'Room in Tokyo',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                    ),
+                    const Text(
+                      'Tokyo, Japan',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.star_rounded,
+                          color: Colors.green,
+                        ),
+                        Icon(
+                          Icons.star_rounded,
+                          color: Colors.green,
+                        ),
+                        Icon(
+                          Icons.star_rounded,
+                          color: Colors.green,
+                        ),
+                        Icon(
+                          Icons.star_rounded,
+                          color: Colors.green,
+                        ),
+                        Icon(
+                          Icons.star_half_rounded,
+                          color: Colors.green,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('(220 reviews)')
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -162,10 +208,47 @@ class _HomeScreenState extends State<HomeScreenx> {
   }
 }
 
-          
-                  
-                
+class CategoryButtons extends StatelessWidget {
+  const CategoryButtons({
+    Key? key,
+    required this.buttons,
+  }) : super(key: key);
 
-              
-            
-              
+  final List buttons;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding:
+          const EdgeInsets.only(top: 20.0, left: 25, right: 25, bottom: 10),
+      child: GridView.builder(
+        padding: EdgeInsets.zero,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: buttons.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, mainAxisExtent: 95, crossAxisSpacing: 10),
+        itemBuilder: (context, index) {
+          return Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: buttons[index][2]),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                buttons[index][0],
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  buttons[index][1],
+                  style: const TextStyle(color: Colors.white, fontSize: 17),
+                )
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
