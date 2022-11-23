@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: AuthThreePage(),
   ));
 }
@@ -14,7 +15,7 @@ class AuthThreePage extends StatefulWidget {
 }
 
 class _AuthThreePageState extends State<AuthThreePage> {
-  final String backImg = 'assets/images/room4.jpg';
+  final String backImg = 'assets/images/bed.jpg';
   late bool formVisible;
   int? _formsIndex;
 
@@ -31,7 +32,7 @@ class _AuthThreePageState extends State<AuthThreePage> {
         body: Container(
         decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/room4.jpg'),
+          image: AssetImage('assets/images/bed.jpg'),
           fit: BoxFit.cover,
         ),
       ),
@@ -72,7 +73,7 @@ class _AuthThreePageState extends State<AuthThreePage> {
                     Expanded(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
+                          backgroundColor: Colors.green,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
@@ -120,7 +121,7 @@ class _AuthThreePageState extends State<AuthThreePage> {
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.red),
+                    side: const BorderSide(color: Colors.green),
                     backgroundColor: Colors.transparent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
@@ -147,7 +148,7 @@ class _AuthThreePageState extends State<AuthThreePage> {
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: _formsIndex == 1
-                                    ? Colors.red
+                                    ? Colors.green
                                     : Colors.white,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20.0)),
@@ -170,7 +171,7 @@ class _AuthThreePageState extends State<AuthThreePage> {
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: _formsIndex == 2
-                                    ? Colors.red
+                                    ? Colors.green
                                     : Colors.white,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20.0)),
@@ -247,7 +248,7 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: 10.0),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.green,
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0),
@@ -304,7 +305,7 @@ class SignupForm extends StatelessWidget {
           const SizedBox(height: 10.0),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.green,
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0),
@@ -321,4 +322,3 @@ class SignupForm extends StatelessWidget {
     );
   }
 }
-//code
