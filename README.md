@@ -1,8 +1,8 @@
 #Auth_ui
 
 ![Screenshot_1669230447](https://user-images.githubusercontent.com/19486593/203630318-9aa271bb-f18d-4d85-8866-8b3d63ff5601.png)
-![Screenshot_1669230470](https://user-images.githubusercontent.com/19486593/203630382-4731362c-4f3e-4988-8f81-fc8185edf84d.png)
 ![Screenshot_1669230464](https://user-images.githubusercontent.com/19486593/203630464-e93152e7-75a7-4cc4-8038-f747c2e1a472.png)
+![Screenshot_1669230470](https://user-images.githubusercontent.com/19486593/203630382-4731362c-4f3e-4988-8f81-fc8185edf84d.png)
 
 #Farmer's_fresh_ui
 
