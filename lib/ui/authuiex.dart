@@ -116,7 +116,7 @@ class _AuthThreePageState extends State<AuthThreePage> {
                   onPressed: () {},
                   icon: const Icon(FontAwesomeIcons.google),
                   label: const Text(
-                    "Continue with Google",
+                    "Continue with google",
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
