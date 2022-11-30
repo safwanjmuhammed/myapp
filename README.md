@@ -1,3 +1,7 @@
+#Detailsui
+
+![Screenshot_1669466041](https://user-images.githubusercontent.com/19486593/204089372-80d4eb69-1609-4ee5-9653-f41b220b3518.png)
+
 #Auth_ui
 
 ![Screenshot_1669230447](https://user-images.githubusercontent.com/19486593/203630318-9aa271bb-f18d-4d85-8866-8b3d63ff5601.png)
