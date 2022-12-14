@@ -52,7 +52,7 @@ class ProfileUi extends StatelessWidget {
                 color: Colors.black,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/7/7e/Virat_Kohli.jpg"),
+                  image: NetworkImage("https://pickaface.net/gallery/avatar/unr_workplacemale_180407_1548_cm3i.png"),
                 ),
                 borderRadius: BorderRadius.circular(100.0),
               ),
@@ -66,17 +66,17 @@ class ProfileUi extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SvgPicture.asset(
-                      'assets/svg/fb.svg',
-                      height: 50,
-                      width: 50,
-                    ),
-                    SvgPicture.asset(
-                      'assets/svg/googleplus.svg',
-                      height: 50,
-                      width: 50,
-                    ),
-                    SvgPicture.asset(
                       'assets/svg/twitter.svg',
+                      height: 50,
+                      width: 50,
+                    ),
+                    SvgPicture.asset(
+                      'assets/svg/facebook.svg',
+                      height: 50,
+                      width: 50,
+                    ),
+                    SvgPicture.asset(
+                      'assets/svg/github.svg',
                       height: 50,
                       width: 50,
                     ),
@@ -93,7 +93,7 @@ class ProfileUi extends StatelessWidget {
               child: Column(
                 children: const [
                   Text(
-                    'chromicle',
+                    'Elon',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                   Text(
